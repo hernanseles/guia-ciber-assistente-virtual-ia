@@ -1,149 +1,61 @@
-# GuiaCiber - Assistente Virtual de Ciberseguranca
+<div align="center">
 
-Projeto desenvolvido para o desafio **Construa seu Assistente Virtual com Inteligencia Artificial**, da DIO.
+# GuiaCiber
 
-## 1. Visao geral
+**Cibersegurança explicada para quem está começando.**
 
-O **GuiaCiber** e um assistente virtual simples para ajudar pessoas iniciantes a entender boas praticas de ciberseguranca. Ele responde perguntas sobre temas basicos como senhas, MFA, phishing, engenharia social, OSINT, metadados, DevSecOps e sistemas operacionais.
+![Python](https://img.shields.io/badge/Python-3776ab?style=flat-square) ![HTML · CSS · JavaScript](https://img.shields.io/badge/HTML%20%C2%B7%20CSS%20%C2%B7%20JavaScript-2563eb?style=flat-square) ![Projeto DIO](https://img.shields.io/badge/Projeto%20DIO-8257e5?style=flat-square)
 
-O objetivo nao e substituir um especialista, mas oferecer uma primeira orientacao clara, segura e baseada em uma pequena base de conhecimento.
+</div>
 
-## 2. Publico-alvo
+---
 
-- Pessoas iniciantes em tecnologia.
-- Estudantes de ciberseguranca.
-- Usuarios que querem melhorar habitos digitais.
-- Profissionais que precisam revisar conceitos basicos.
+Assistente educacional que responde perguntas sobre segurança digital usando uma base de conhecimento local e correspondência de palavras-chave. Desenvolvido para o desafio **Construa seu Assistente Virtual com Inteligência Artificial**, da DIO.
 
-## 3. Problema
+> O protótipo atual não usa um modelo generativo nem uma API de IA. Seu foco é documentar e demonstrar o comportamento de um assistente.
 
-Muitas pessoas conhecem termos como phishing, MFA e engenharia social, mas ainda nao sabem como aplicar esses conceitos no dia a dia. Isso aumenta o risco de golpes, vazamentos de senhas e decisoes inseguras.
+## Explore os temas
 
-## 4. Solucao
+Senhas, MFA, phishing, engenharia social, OSINT, metadados, DevSecOps e sistemas operacionais.
 
-O GuiaCiber recebe uma pergunta do usuario, procura termos relacionados na base de conhecimento e responde de forma objetiva. Quando nao encontra informacao suficiente, ele informa a limitacao e sugere reformular a pergunta.
+## Experimente
 
-## 5. Estrutura do projeto
+### No navegador
 
-```text
-assistente-virtual-ia/
-  README.md
-  data/
-    base_conhecimento.json
-  docs/
-    agente.md
-    prompts.md
-    avaliacao_metricas.md
-    pitch.md
-  src/
-    assistente.py
-  tests/
-    perguntas_teste.md
-```
+Abra [src/index.html](src/index.html). Essa versão funciona sem instalação.
 
-## 6. Como executar
+### No terminal
 
-### Opcao 1: navegador
-
-Abra o arquivo:
-
-```text
-src/index.html
-```
-
-Essa versao nao precisa instalar nada.
-
-### Opcao 2: terminal
-
-Requisito: Python 3.10 ou superior.
+Com Python 3.10 ou superior:
 
 ```bash
 python src/assistente.py
 ```
 
-Depois, digite uma pergunta, por exemplo:
+Pergunte **“Como identificar phishing?”** ou **“Por que usar MFA?”**. Digite `sair` para encerrar.
 
-```text
-Como identificar phishing?
-```
+## Como a resposta é construída
 
-Para sair:
+1. A pergunta é normalizada.
+2. Palavras-chave são comparadas com os tópicos disponíveis.
+3. O tópico encontrado fornece a resposta-base.
+4. Sem correspondência suficiente, o assistente informa a limitação.
 
-```text
-sair
-```
+## Mapa do projeto
 
-## 7. Como funciona
+| Arquivo | Conteúdo |
+| --- | --- |
+| [Base de conhecimento](data/base_conhecimento.json) | Tópicos, palavras-chave e respostas. |
+| [Agente](docs/agente.md) | Objetivo, público e comportamento. |
+| [Prompts](docs/prompts.md) | Instruções e regras de segurança. |
+| [Avaliação](docs/avaliacao_metricas.md) | Critérios e resultados esperados. |
+| [Perguntas de teste](tests/perguntas_teste.md) | Roteiro de avaliação manual. |
+| [Pitch](docs/pitch.md) | Problema, solução e proposta de valor. |
 
-1. O usuario digita uma pergunta.
-2. A aplicacao normaliza o texto.
-3. O sistema compara palavras-chave da pergunta com a base de conhecimento.
-4. O melhor topico encontrado e usado para montar a resposta.
-5. Se nenhum topico for encontrado, o assistente explica que nao tem informacao suficiente.
+## Limitações e evolução
 
-## 8. Exemplos de perguntas
+A base é pequena e a busca não é semântica. O assistente não faz diagnóstico técnico. Possíveis próximos passos incluem ampliar os tópicos, implementar busca semântica e avaliar uma integração generativa com credenciais mantidas no servidor.
 
-- O que e phishing?
-- Como criar uma senha forte?
-- Por que usar MFA?
-- O que e engenharia social?
-- O que sao metadados?
-- O que e DevSecOps?
-- O que e kernel?
+## Uso seguro
 
-## 9. Etapas do desafio
-
-### Documentacao do agente
-
-Arquivo: `docs/agente.md`
-
-Descreve objetivo, publico, tom de voz, limites e comportamento esperado.
-
-### Base de conhecimento
-
-Arquivo: `data/base_conhecimento.json`
-
-Contem topicos, palavras-chave e respostas-base usadas pelo assistente.
-
-### Prompts do agente
-
-Arquivo: `docs/prompts.md`
-
-Define prompt de sistema, prompt de usuario e regras de seguranca.
-
-### Aplicacao funcional
-
-Arquivo: `src/assistente.py`
-
-Implementa um prototipo funcional em linha de comando.
-
-### Avaliacao e metricas
-
-Arquivo: `docs/avaliacao_metricas.md`
-
-Mostra perguntas de teste, criterios de avaliacao e resultados esperados.
-
-### Pitch
-
-Arquivo: `docs/pitch.md`
-
-Apresenta problema, solucao, publico e valor do projeto.
-
-## 10. Limitacoes
-
-- Base de conhecimento pequena.
-- Nao usa modelo generativo real.
-- Nao executa diagnostico tecnico.
-- Nao deve ser usado como consultoria profissional de seguranca.
-
-## 11. Possiveis melhorias
-
-- Integrar uma API de IA generativa.
-- Criar interface web.
-- Adicionar historico de conversa.
-- Aumentar a base de conhecimento.
-- Implementar busca semantica com embeddings.
-
-## 12. Conclusao
-
-O GuiaCiber demonstra como um assistente virtual pode usar uma base de conhecimento organizada para orientar usuarios em uma tarefa real. O foco do projeto esta em documentacao, clareza, utilidade e aprendizado pratico.
+Use perguntas fictícias ou genéricas. Não insira senhas, chaves de API ou dados pessoais. As respostas são material educacional e precisam ser avaliadas no contexto de uso.
